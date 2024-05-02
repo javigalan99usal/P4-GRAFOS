@@ -1,7 +1,8 @@
 # Sesión Grafos
 
-ejercicio1: ejercicio1.c grafos.h grafos.o cola.o
-	gcc -g ejercicio1.c grafos.o cola.o -o ejercicio1
+#ejercicio1: ejercicio1.c grafos.h grafos.o cola.o
+#	gcc -g ejercicio1.c grafos.o cola.o -o ejercicio1
+
 ejercicio2: ejercicio2.c grafos.h grafos.o cola.o 
 	gcc -g ejercicio2.c grafos.o cola.o -o ejercicio2
 

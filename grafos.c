@@ -79,8 +79,34 @@ void amplitudMejorado(int v_inicio, tipoGrafo *g)
 /**********************************************************************************************/
 /* Ejercicio 2*/
 
-int ordenTop1(tipoGrafo *grafo)
+int ordenTop(tipoGrafo *grafo) //Orden topológico del grafo utilizando un TAD Cola
 {
+  int i, v, w;
+  pArco p;
+  Cola c;
+  colaCreaVacia(&c);
+  for (i = 1; i <= grafo->orden; i++) //Busco en todo el grafo los vértices con grado de entrada 0
+  {
+    if (grafo->directorio[i].gradoEntrada == 0) // Si el grado de entrada es 0
+      colaInserta(i, &c); // Se inserta en la cola
+  }
+  i = 1;
+  while (!colaVacia(&c))
+  {
+    v = colaSuprime(&c);
+    grafo->directorio[v].ordenTop = i++;
+    p = grafo->directorio[v].lista;
+    while (p != NULL)
+    {
+      w = p->v;
+      grafo->directorio[w].gradoEntrada--;
+      if (grafo->directorio[w].gradoEntrada == 0)
+        colaInserta(w, &c);
+      p = p->sig;
+    }
+  }
+  if (i <= grafo->orden)
+    return -1; // Si el grafo es cíclico
 }
 int ordenTop2(tipoGrafo *grafo)
 {
