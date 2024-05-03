@@ -7,11 +7,11 @@ typedef struct
 {
    tipoClave clave;
    tipoInfo informacion;
-} tipoElemento;
+} tipoElementoM;
 
 typedef struct
 {
-   tipoElemento elemento[MAXIMO];
+   tipoElementoM elemento[MAXIMO];
    int tamanno;
 } Monticulo;
 
@@ -19,8 +19,8 @@ typedef struct
 
 void iniciaMonticulo(Monticulo *m);
 int vacioMonticulo(Monticulo m);
-int insertar(tipoElemento x, Monticulo *m);
-int eliminarMinimo(Monticulo *m, tipoElemento *minimo);
+int insertar(tipoElementoM x, Monticulo *m);
+int eliminarMinimo(Monticulo *m, tipoElementoM *minimo);
 void decrementarClave(int pos, tipoClave cantidad, Monticulo *m);
 void incrementarClave(int pos, tipoClave cantidad, Monticulo *m);
 int esMonticulo(Monticulo m);

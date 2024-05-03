@@ -3,16 +3,11 @@
 #ejercicio1: ejercicio1.c grafos.h grafos.o cola.o
 #	gcc -g ejercicio1.c grafos.o cola.o -o ejercicio1
 
-ejercicio2: ejercicio2.c grafos.h grafos.o cola.o 
-	gcc -g ejercicio2.c grafos.o cola.o -o ejercicio2
+#ejercicio2: ejercicio2.c grafos.h grafos.o cola.o 
+#	gcc -g ejercicio2.c grafos.o cola.o -o ejercicio2
 
-
-# Para la ultima parte de ejercicio2.c necesitamos monticulo.o ...cambia la linea de ordenes...
-#ejercicio2: ejercicio2.c grafos.h grafos.o cola.o monticulo.o 
-#	gcc -g ejercicio2.c grafos.o cola.o monticulo.o -o ejercicio2
-
-
-
+ejercicio3: ejercicio3.c grafos.h grafos.o cola.o monticulo.o pila.o
+	gcc -g ejercicio3.c grafos.o cola.o monticulo.o pila.o -o ejercicio3
 
 grafos.o: grafos.c grafos.h
 	gcc -g -c grafos.c

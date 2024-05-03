@@ -28,13 +28,13 @@ int vacioMonticulo(Monticulo m)
 //
 //  Función que inserta un elemento en el montículo
 //
-int insertar(tipoElemento x, Monticulo *m)
+int insertar(tipoElementoM x, Monticulo *m)
 {
     if (m->tamanno < MAXIMO) // Si el montículo no está lleno
     {
         m->tamanno++;                // Incrementa el tamaño del montículo
         m->elemento[m->tamanno] = x; // Inserta el elemento en la última posición
-        printf(" - Insertado elemento %d\n", x.clave);
+        //printf(" - Insertado elemento %d\n", x.clave);
         if (m->tamanno != 1)
             filtradoAscendente(m, m->tamanno); // Filtra el elemento hacia arriba
         return 0;                              // Inserción correcta
@@ -47,7 +47,7 @@ int insertar(tipoElemento x, Monticulo *m)
 //
 //  Función que elimina el mínimo del montículo
 //
-int eliminarMinimo(Monticulo *m, tipoElemento *minimo)
+int eliminarMinimo(Monticulo *m, tipoElementoM *minimo)
 {
     if (m->tamanno > 0) // Si el montículo no está vacío
     {
@@ -138,7 +138,7 @@ void crearMonticulo(Monticulo *m)
 //
 void filtradoAscendente(Monticulo *m, int i)
 {
-    tipoElemento nodo = m->elemento[i];
+    tipoElementoM nodo = m->elemento[i];
     int hueco = i;
     while (hueco > 1) // Mientras el hueco no este en la raiz del monticulo
     {
@@ -162,8 +162,8 @@ void filtradoAscendente(Monticulo *m, int i)
 void filtradoDescendente(Monticulo *m, int i)
 {
     int hijoUsado, hueco = i;
-    tipoElemento raiz = m->elemento[i]; // Guarda el elemento a filtrar
-    tipoElemento hijoMenor;
+    tipoElementoM raiz = m->elemento[i]; // Guarda el elemento a filtrar
+    tipoElementoM hijoMenor;
     bool finFiltrado = false;
     while (hueco * 2 <= m->tamanno && finFiltrado == false) // Mientras el hueco tenga al menos un hijo, hacer
     {
@@ -203,7 +203,7 @@ void heapsort(Monticulo *m)
 {
 
     int i, tamOriginal = m->tamanno;
-    tipoElemento raiz;
+    tipoElementoM raiz;
 
     crearMonticulo(m); // Creo un montículo con los elementos del array
 
@@ -216,7 +216,7 @@ void heapsort(Monticulo *m)
     {
         if (eliminarMinimo(m, &raiz)) // Si no puede eliminar el elemento mínimo
         {
-            printf("Error al intentar eliminar la raizdel monticulo.\n");
+            printf("Error al intentar eliminar la raiz del monticulo.\n");
             return;
         }
         else // Si elimina la raíz correctamente
